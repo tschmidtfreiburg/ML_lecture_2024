@@ -1,0 +1,33 @@
+#!/bin/zsh
+# 
+# Submit files
+
+
+
+
+autoload colors; colors
+
+
+echo $fg[green]"\n Git: Submitting ML Lecture 2024 \n -----------------------------\n\n"$reset_color
+
+
+
+
+cd "$(dirname "$0")"
+
+git pull origin main
+
+
+
+NOW=$(date +"%m-%d-%Y, %H:%M")
+
+# GSP = git script push
+
+git add --all . 
+git commit -m "GSP: $1, time: $NOW"
+git push origin main
+
+chmod a+x git_submit
+
+echo $fg[green]"\n DONE \n -----------------------------\n\n"$reset_color
+
